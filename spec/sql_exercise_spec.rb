@@ -102,4 +102,16 @@ describe SqlExercise do
       expect(first_item["description"]).to eq("downhill ski")
     end
   end
+
+  describe "#find_item_by_name" do
+    it "returns the item with the given name" do
+      skip
+      expect(sql_exercise.find_item_by_name("boot01")).to eq({"id" => "7", "name" => "boot01", "description" => "hiking boots"})
+    end
+
+    it "returns nil if no item is found" do
+      skip
+      expect(sql_exercise.find_item_by_name("nonehere")).to eq(nil)
+    end
+  end
 end
