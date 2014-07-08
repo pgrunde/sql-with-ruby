@@ -4,7 +4,7 @@ describe SqlExercise do
 
   let(:sql_exercise) { SqlExercise.new }
 
-  describe "#display_customers" do
+  describe "#all_customers" do
     it "returns a hash of all the customer data" do
       customers = sql_exercise.all_customers
 
