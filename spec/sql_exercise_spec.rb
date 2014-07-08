@@ -272,4 +272,31 @@ describe SqlExercise do
       expect(sql_exercise.customers_that_bought_item_in_state("bike03", "Maine")).to eq(expected_user)
     end
   end
+
+  it "does not allow users of the SqlExercise class mess with the database" do
+    skip
+    sql_exercise.limit_customers("5; DROP TABLE customers;")
+
+    expect {
+      expect(sql_exercise.database_connection.sql("SELECT count(*) FROM customers;"))
+    }.to_not raise_exception
+
+    sql_exercise.order_customers("ASC; DROP TABLE customers;")
+
+    expect {
+      expect(sql_exercise.database_connection.sql("SELECT count(*) FROM customers;"))
+    }.to_not raise_exception
+
+    sql_exercise.order_customers("ASC; DROP TABLE customers;")
+
+    expect {
+      expect(sql_exercise.database_connection.sql("SELECT count(*) FROM customers;"))
+    }.to_not raise_exception
+
+    sql_exercise.find_items_by_name("'; drop table items; SELECT * FROM customers where name = '")
+
+    expect {
+      expect(sql_exercise.database_connection.sql("SELECT count(*) FROM items;"))
+    }.to_not raise_exception
+  end
 end
