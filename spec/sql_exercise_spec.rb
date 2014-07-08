@@ -127,4 +127,11 @@ describe SqlExercise do
       expect(sql_exercise.find_item_by_name("nonehere")).to eq(nil)
     end
   end
+
+  describe "#count_customers" do
+    it "returns the number of customers" do
+      skip
+      expect(sql_exercise.count_customers).to eq(10)
+    end
+  end
 end
