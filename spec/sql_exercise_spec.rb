@@ -134,4 +134,13 @@ describe SqlExercise do
       expect(sql_exercise.count_customers).to eq(10)
     end
   end
+
+  describe "#sum_order_amounts" do
+    it "returns the total of all order amounts" do
+      skip
+      sum = sql_exercise.sum_order_amounts
+
+      expect(sum).to eq(2466.41)
+    end
+  end
 end
