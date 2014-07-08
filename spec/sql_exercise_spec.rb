@@ -208,7 +208,6 @@ describe SqlExercise do
     end
 
     it "returns the correct customer names and ids for customers that bought 'boot01'" do
-      skip
       expected_customers = [
         {
           "customer_name" => "Tyrell Von DDS", "id" => "2"
@@ -245,7 +244,6 @@ describe SqlExercise do
 
   describe "#customers_that_bought_item_in_state" do
     it "returns the first customer that bought 'bike03' that lives in Maine" do
-      skip
       expected_user = {
         "id" => "9",
         "name" => "Wilhelmine Huels",
@@ -261,7 +259,7 @@ describe SqlExercise do
   end
 
   it "does not allow users of the SqlExercise class mess with the database" do
-    skip
+    skip  
     sql_exercise.limit_customers("5; DROP TABLE customers;")
 
     expect {

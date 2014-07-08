@@ -80,4 +80,16 @@ class SqlExercise
     SQL
     database_connection.sql(var)
   end
+
+  def customers_that_bought_item_in_state(item, state)
+    var = <<-SQL
+    SELECT customers.id, customers.name, customers.email, customers.address, customers.city, customers.state, customers.zipcode
+    FROM customers
+    JOIN orders ON orders.customer_id = customers.id
+    JOIN orderitems ON orderitems.order_id = orders.id
+    JOIN items ON items.id = orderitems.item_id
+    WHERE customers.state = '#{state}' AND items.name = '#{item}';
+    SQL
+    database_connection.sql(var).first
+  end
 end
