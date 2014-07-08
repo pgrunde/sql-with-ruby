@@ -91,6 +91,7 @@ describe SqlExercise do
 
   describe "#all_items" do
     it "returns all items" do
+      skip
       items = sql_exercise.all_items
 
       expect(items.length).to eq(9)
