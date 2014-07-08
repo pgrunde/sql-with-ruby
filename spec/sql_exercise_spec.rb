@@ -16,4 +16,58 @@ describe SqlExercise do
       expect(first_customer["email"]).to eq("ladarius@waelchi.org")
     end
   end
+
+  describe "#limit_customers" do
+    it "can return one customer" do
+      expected_customers = [
+        {
+          "id" => "1",
+          "name" => "Donato Rempel",
+          "email" => "ladarius@waelchi.org",
+          "address" => "890 Ullrich Plains",
+          "city" => "Janachester",
+          "state" => "Virginia",
+          "zipcode" => "77714"
+        }
+      ]
+
+      expect(sql_exercise.limit_customers(1)).to eq(expected_customers)
+    end
+
+    it "can return three customers" do
+      skip
+
+      expected_customers = [
+        {
+          "id" => "1",
+          "name" => "Donato Rempel",
+          "email" => "ladarius@waelchi.org",
+          "address" => "890 Ullrich Plains",
+          "city" => "Janachester",
+          "state" => "Virginia",
+          "zipcode" => "77714"
+        },
+        {
+          "id" => "2",
+          "name" => "Tyrell Von DDS",
+          "email" => "cleo_frami@bartondenesik.name",
+          "address" => "63337 Abdullah Camp",
+          "city" => "Verdieborough",
+          "state" => "Colorado",
+          "zipcode" => "69882-7027"
+        },
+        {
+          "id" => "3",
+          "name" => "Ms. Sofia Rowe",
+          "email" => "jacky_funk@bayerprosacco.name",
+          "address" => "1991 Kyler Village",
+          "city" => "Opheliaborough",
+          "state" => "Ohio",
+          "zipcode" => "15599-5395"
+        }
+      ]
+
+      expect(sql_exercise.limit_customers(3)).to eq(expected_customers)
+    end
+  end
 end
