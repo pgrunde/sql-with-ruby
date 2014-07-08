@@ -70,4 +70,22 @@ describe SqlExercise do
       expect(sql_exercise.limit_customers(3)).to eq(expected_customers)
     end
   end
+
+  describe "#order_customers" do
+    it "can orders the customers in alphabetical order" do
+      skip
+      alphabetical_customers = sql_exercise.order_customers("ASC")
+
+      expect(alphabetical_customers.first["name"]).to eq("Coleman Prohaska Jr.")
+      expect(alphabetical_customers.last["name"]).to eq("Zelma Davis")
+    end
+
+    it "can orders the customers in reverse alphabetical order" do
+      skip
+      alphabetical_customers = sql_exercise.order_customers("DESC")
+
+      expect(alphabetical_customers.first["name"]).to eq("Zelma Davis")
+      expect(alphabetical_customers.last["name"]).to eq("Coleman Prohaska Jr.")
+    end
+  end
 end
