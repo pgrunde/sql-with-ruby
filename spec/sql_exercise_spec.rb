@@ -149,7 +149,7 @@ describe SqlExercise do
       skip
       minimum_order_amounts = sql_exercise.minimum_order_amount_for_customers
 
-      customer_1 = minimum_order_amounts.find {|order| order["customer_id"] == "1"}
+      customer_1 = minimum_order_amounts.find { |order| order["customer_id"] == "1" }
 
       expect(customer_1).to eq({"customer_id" => "1", "min" => "5.67"})
     end
@@ -160,9 +160,26 @@ describe SqlExercise do
       skip
       orders = sql_exercise.customer_order_totals
 
-      order_10 = orders.find {|order| order["customer_id"] == "10"}
+      order_10 = orders.find { |order| order["customer_id"] == "10" }
 
-      expect(order_10).to eq({"customer_id"=>"10", "name"=>"Hulda Will III", "sum"=>"313.55"})
+      expect(order_10).to eq({"customer_id" => "10", "name" => "Hulda Will III", "sum" => "313.55"})
+    end
+  end
+
+  describe "#items_ordered_by_user" do
+    it "returns the item name for all the orders placed by the given customer id" do
+      expected_orders_for_second_customer = [
+        "boot01",
+        "bike03",
+        "ski01",
+        "bike01",
+        "bike02",
+        "boot03",
+        "ski02",
+        "boot01"
+      ]
+
+      expect(sql_exercise.items_ordered_by_user(2)).to eq(expected_orders_for_second_customer)
     end
   end
 end
