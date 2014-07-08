@@ -143,4 +143,15 @@ describe SqlExercise do
       expect(sum).to eq(2466.41)
     end
   end
+
+  describe "#minimum_order_amount_for_customers" do
+    it "returns the minimum order amount for each customer" do
+      skip
+      minimum_order_amounts = sql_exercise.minimum_order_amount_for_customers
+
+      customer_1 = minimum_order_amounts.find {|order| order["customer_id"] == "1"}
+
+      expect(customer_1).to eq({"customer_id" => "1", "min" => "5.67"})
+    end
+  end
 end
