@@ -88,4 +88,17 @@ describe SqlExercise do
       expect(alphabetical_customers.last["name"]).to eq("Coleman Prohaska Jr.")
     end
   end
+
+  describe "#all_items" do
+    it "returns all items" do
+      items = sql_exercise.all_items
+
+      expect(items.length).to eq(9)
+
+      first_item = items.first
+
+      expect(first_item["name"]).to eq("ski01")
+      expect(first_item["description"]).to eq("downhill ski")
+    end
+  end
 end
