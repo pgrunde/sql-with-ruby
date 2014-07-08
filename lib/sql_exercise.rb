@@ -8,4 +8,8 @@ class SqlExercise
     @database_connection = DatabaseConnection.new
   end
 
+  def all_customers
+    @database_connection.sql("SELECT * from customers")
+  end
+
 end
