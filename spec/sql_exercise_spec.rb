@@ -259,7 +259,7 @@ describe SqlExercise do
   end
 
   it "does not allow users of the SqlExercise class mess with the database" do
-    skip  
+    skip
     sql_exercise.limit_customers("5; DROP TABLE customers;")
 
     expect {

@@ -13,11 +13,14 @@ class SqlExercise
   end
 
   def limit_customers(number)
-    database_connection.sql("SELECT * FROM customers LIMIT #{number};")
+    the_number = number.to_i
+    database_connection.sql("SELECT * FROM customers LIMIT #{the_number};")
   end
 
   def order_customers(arg)
-    database_connection.sql("SELECT * FROM customers ORDER BY name #{arg};")
+    if arg == "ASC" || arg == "DESC"
+      database_connection.sql("SELECT * FROM customers ORDER BY name #{arg};")
+    end
   end
 
   def id_and_name_for_customers
@@ -29,7 +32,14 @@ class SqlExercise
   end
 
   def find_item_by_name(arg)
-    database_connection.sql("SELECT * FROM items WHERE name = '#{arg}';").first
+    dollop = nil
+    names_array = database_connection.sql("SELECT name FROM items;")
+    names_array.each do |hash|
+      if hash["name"] == arg
+        dollop = database_connection.sql("SELECT * FROM items WHERE name = '#{arg}';").first
+      end
+    end
+    dollop
   end
 
   def count_customers
