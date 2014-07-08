@@ -9,7 +9,7 @@ class SqlExercise
   end
 
   def all_customers
-    @database_connection.sql("SELECT * from customers")
+    database_connection.sql("SELECT * from customers")
   end
 
 end

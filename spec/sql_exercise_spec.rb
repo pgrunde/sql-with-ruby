@@ -12,6 +12,8 @@ describe SqlExercise do
 
       first_customer = customers.first
 
+      p first_customer
+
       expect(first_customer["name"]).to eq("Donato Rempel")
       expect(first_customer["email"]).to eq("ladarius@waelchi.org")
     end
