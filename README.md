@@ -20,6 +20,8 @@ exercise, only now you will be writing Ruby code to make those queries.
 1. Fork and clone this repository
 1. `cd` into the repository directory
 1. `bundle install`
+1. Create the databaes for the exercise by opening 'psql' and typing the command `CREATE DATABASE exercisedbruby;`
+1. Import the tables and data by running `psql -d exercisedbruby -a -f restore.sql -U gschool` from the command line
 
 ## Exercise
 
