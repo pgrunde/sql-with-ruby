@@ -14,5 +14,39 @@ stories in that exercise.
 ## Setup
 
 1. Fork and clone this repository
+1. `cd` into the repository directory
 1. `bundle install`
-1. Create a new Pivotal Tracker account and import the stories in `stories.csv`
+
+## Exercise
+
+Your goal is to make all the tests in `spec/sql_exercise_spec.rb` pass. Run `rspec`
+and you will see a single failing test. After you make that test pass, find the next
+test in the test file and delete the line that says `skip`. Continue this process
+until you have removed all the `skips` in the test file and all the tests pass.
+
+## Database Configuration
+
+When you run psql from the command line, it uses some default connection information
+to connect to the database you want to run SQL queries against. Ruby doesn't
+know about this default connection information, so you need to tell Ruby how to
+connect to the database.
+
+In this project, we are storing our database connection information in a separate
+file from our Ruby code. This is a common pattern and makes it easy for our Ruby
+code to connect to different databases (test, development, production) without
+having to change.
+
+The file in `config/database.yml` defines the connection options that our Ruby code
+uses to connect to the database:
+
+    development:
+      adapter: postgresql
+      encoding: unicode
+      database: exercisedb
+      username: gschool
+      password:
+
+We are telling Ruby that we want to connection to a Postgres database server, that
+the name of the database RUby should connect to i `exercisedb`, the username Ruby
+use to connect to the database is `gschool` (we created this Postgres user yesterday),
+and the password Ruby should use to connect to the database is blank.
