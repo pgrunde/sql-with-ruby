@@ -8,12 +8,8 @@ commands we want to run, this exercise will introduce the concept of connecting
 to a database with Ruby and executing SQL commands through that connection.
 
 This exercise will use the same database schema as [https://github.com/gSchool/sql-query-exercise](https://github.com/gSchool/sql-query-exercise).
-Before you begin this exercise, be sure that you have completed the first two
-stories in that exercise.
-
-The SQL queries you will write will be very similar to some of the queries from
-the [https://github.com/gSchool/sql-query-exercise](https://github.com/gSchool/sql-query-exercise)
-exercise, only now you will be writing Ruby code to make those queries.
+The SQL queries you will write will be very similar to some of the queries from that exercise,
+only now you will be writing Ruby code to make those queries.
 
 ## Setup
 
