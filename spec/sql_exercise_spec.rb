@@ -89,6 +89,19 @@ describe SqlExercise do
     end
   end
 
+  describe "#id_and_name_for_customers" do
+    it "returns only the id and name for each customer" do
+      skip
+      customers = sql_exercise.id_and_name_for_customers
+
+      expect(customers.length).to eq(10)
+
+      first_customer = customers.first
+
+      expect(first_customer).to eq({"id" => "1", "name" => "Donato Rempel"})
+    end
+  end
+
   describe "#all_items" do
     it "returns all items" do
       skip
