@@ -183,4 +183,41 @@ describe SqlExercise do
       expect(sql_exercise.items_ordered_by_user(2)).to eq(expected_orders_for_second_customer)
     end
   end
+
+  describe "#customers_that_bought_item" do
+    it "returns the customer name and id of all users that bought a given item" do
+      skip
+      expected_customers = [
+        {
+          "customer_name" => "Tyrell Von DDS", "id" => "2"
+        },
+        {
+          "customer_name" => "Edna Hintz", "id" => "7"
+        },
+        {
+          "customer_name" => "Evert Pfeffer", "id" => "4"
+        },
+        {
+          "customer_name" => "Donato Rempel", "id" => "1"
+        },
+        {
+          "customer_name" => "Coleman Prohaska Jr.", "id" => "8"
+        },
+        {
+          "customer_name" => "Zelma Davis", "id" => "6"
+        },
+        {
+          "customer_name" => "Elta Dicki", "id" => "5"
+        },
+        {
+          "customer_name" => "Hulda Will III", "id" => "10"
+        },
+        {
+          "customer_name" => "Wilhelmine Huels", "id" => "9"
+        },
+      ]
+
+      expect(sql_exercise.customers_that_bought_item("bike01")).to match_array(expected_customers)
+    end
+  end
 end
