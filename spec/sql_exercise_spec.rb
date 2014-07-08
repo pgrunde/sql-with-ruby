@@ -154,4 +154,15 @@ describe SqlExercise do
       expect(customer_1).to eq({"customer_id" => "1", "min" => "5.67"})
     end
   end
+
+  describe "#customer_order_totals" do
+    it "returns the customer id, customer name, and total of all their orders for each customer" do
+      skip
+      orders = sql_exercise.customer_order_totals
+
+      order_10 = orders.find {|order| order["customer_id"] == "10"}
+
+      expect(order_10).to eq({"customer_id"=>"10", "name"=>"Hulda Will III", "sum"=>"313.55"})
+    end
+  end
 end
